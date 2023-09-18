@@ -7,6 +7,9 @@ import cors from 'cors'
 import productRouter from "./src/routes/productRoute.js";
 import orderRouter from "./src/routes/orderRoute.js";
 import path from 'path';
+import {fileURLToPath } from 'url';
+
+
 
 
 
@@ -14,6 +17,10 @@ const server = express();
 // config
 dotenv.config();
 connectDB();
+
+// es module fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //middlwares
 server.use(cors());
